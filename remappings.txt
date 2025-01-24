@@ -1,0 +1,6 @@
+forge-std/=lib/forge-std/src/
+@latticexyz/=node_modules/@latticexyz/
+@account-abstraction/=node_modules/@account-abstraction/
+@openzeppelin/=node_modules/@openzeppelin/
+solidity-stringutils/=node_modules/solidity-stringutils/
+@zk-email/=node_modules/@zk-email
