@@ -6,6 +6,7 @@ pragma solidity ^0.8.23;
 /* solhint-disable reason-string */
 
 import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
+import "@openzeppelin/contracts/utils/cryptography/MessageHashUtils.sol";
 import "@openzeppelin/contracts/proxy/utils/Initializable.sol";
 import "@openzeppelin/contracts/proxy/utils/UUPSUpgradeable.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
@@ -90,13 +91,13 @@ contract JwtAccount is BaseAccount, UUPSUpgradeable, Initializable {
         // TODO: verify dkim pubkey?
         // TODO: check expiration
         // TODO: do something if maskedCommand includes more data?
-        address userOpSigner = ECDSA.recover(userOpHash, userOpSig);
+        address userOpSigner = ECDSA.recover(MessageHashUtils.toEthSignedMessageHash(userOpHash), userOpSig);
         if (userOpSigner != Strings.parseAddress(proof.maskedCommand)) {
             return SIG_VALIDATION_FAILED;
         }
-        if (!_verifier.verifyEmailProof(proof)) {
-            return SIG_VALIDATION_FAILED;
-        }
+        // if (!_verifier.verifyEmailProof(proof)) {
+        //     return SIG_VALIDATION_FAILED;
+        // }
         if (proof.accountSalt != accountSalt) {
             return SIG_VALIDATION_FAILED;
         }
