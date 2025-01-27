@@ -14,7 +14,7 @@
     "@openzeppelin/contracts": "^5.2.0",
     "@openzeppelin/contracts-upgradeable": "^5.2.0",
     "@zk-email/contracts": "^6.1.5",
-    "@zk-email/jwt-tx-builder-contracts": "link:../jwt-tx-builder/packages/contracts",
+    "@zk-email/jwt-tx-builder-contracts": "0.0.1-main",
     "solidity-stringutils": "git+https://github.com/LayerZero-Labs/solidity-stringutils.git"
   }
 }

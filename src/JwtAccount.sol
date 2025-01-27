@@ -95,9 +95,9 @@ contract JwtAccount is BaseAccount, UUPSUpgradeable, Initializable {
         if (userOpSigner != Strings.parseAddress(proof.maskedCommand)) {
             return SIG_VALIDATION_FAILED;
         }
-        // if (!_verifier.verifyEmailProof(proof)) {
-        //     return SIG_VALIDATION_FAILED;
-        // }
+        if (!_verifier.verifyEmailProof(proof)) {
+            return SIG_VALIDATION_FAILED;
+        }
         if (proof.accountSalt != accountSalt) {
             return SIG_VALIDATION_FAILED;
         }
