@@ -5,7 +5,6 @@ import "./interfaces/IJwtGroth16Verifier.sol";
 import {UUPSUpgradeable} from "@openzeppelin/contracts/proxy/utils/UUPSUpgradeable.sol";
 import {OwnableUpgradeable} from "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import {IVerifier, JwtProof} from "./interfaces/IVerifier.sol";
-import {console} from "forge-std/Test.sol";
 
 contract JwtVerifier is IVerifier, OwnableUpgradeable, UUPSUpgradeable {
     IJwtGroth16Verifier groth16Verifier;
@@ -55,14 +54,9 @@ contract JwtVerifier is IVerifier, OwnableUpgradeable, UUPSUpgradeable {
             bytes(proof.domainName), DOMAIN_BYTES, pubSignals, 1 + ISS_FIELDS + 3 + COMMAND_FIELDS + 1 + AZP_FIELDS
         );
         // isCodeExist
-        pubSignals[1 + ISS_FIELDS + 3 + COMMAND_FIELDS + 1 + AZP_FIELDS] = proof.isCodeExist ? 1 : 0;
+        pubSignals[1 + ISS_FIELDS + 3 + COMMAND_FIELDS + 1 + AZP_FIELDS + DOMAIN_FIELDS] = proof.isCodeExist ? 1 : 0;
 
-        // return groth16Verifier.verifyProof(pA, pB, pC, pubSignals);
-        console.log("pubSignals array contents:");
-        for (uint256 i = 0; i < 40; i++) {
-            console.log("pubSignals[%d] = %d", i, pubSignals[i]);
-        }
-        return true;
+        return groth16Verifier.verifyProof(pA, pB, pC, pubSignals);
     }
 
     function _packBytesIntoArray(
