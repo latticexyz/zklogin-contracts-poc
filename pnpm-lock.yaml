@@ -17,15 +17,6 @@ importers:
       '@openzeppelin/contracts-upgradeable':
         specifier: ^5.2.0
         version: 5.2.0(@openzeppelin/contracts@5.2.0)
-      '@zk-email/contracts':
-        specifier: ^6.1.5
-        version: 6.1.5
-      '@zk-email/jwt-tx-builder-contracts':
-        specifier: 0.0.1-main
-        version: 0.0.1-main
-      solidity-stringutils:
-        specifier: git+https://github.com/LayerZero-Labs/solidity-stringutils.git
-        version: https://codeload.github.com/LayerZero-Labs/solidity-stringutils/tar.gz/eb21d6b502c2741145ab2a90f5f5b4fda9dfb218
 
 packages:
 
@@ -59,25 +50,8 @@ packages:
     resolution: {integrity: sha512-S4+m+wh8HbWSO3DKk4LwUCPZJTpCugIsHrWR86m/OrUyvSqGDTXKFfc2sMuGXCZrD1ZqO3rhQsKgdWg3Hbb2Kw==}
     engines: {node: '>=10'}
 
-  '@zk-email/contracts@6.1.5':
-    resolution: {integrity: sha512-1RW3dpYGBQXjmIlcTGMtYsux7FQoR1MezA0D0pssrNEaCO2CuQd6oAxJLpbCxFQWPbujLKn8PiEVcjP+eiGvVw==}
-
-  '@zk-email/jwt-tx-builder-contracts@0.0.1-main':
-    resolution: {integrity: sha512-Gq2gOoIb0FzbP+okOiTzeUhH1rwBsHEmtb2szHz4l10/6ubPklXlc7i0a9tOLF23IUlAmqRS13/ajBVwXjzt3A==}
-
   base64-sol@1.0.1:
     resolution: {integrity: sha512-ld3cCNMeXt4uJXmLZBHFGMvVpK9KsLVEhPpFRXnvSVAqABKbuNZg/+dsq3NuM+wxFLb/UrVkz7m1ciWmkMfTbg==}
-
-  dotenv@16.4.7:
-    resolution: {integrity: sha512-47qPchRCykZC03FhkYAhrvwU4xDBFIj1QPqaarj6mdM/hgUzfPHcpkHJOn3mJAufFeeAxAzeGsr5X0M4k6fLZQ==}
-    engines: {node: '>=12'}
-
-  solady@0.0.123:
-    resolution: {integrity: sha512-F/B8OMCplGsS4FrdPrnEG0xdg8HKede5PwC+Rum8soj/LWxfKckA0p+Uwnlbgey2iI82IHvmSOCNhsdbA+lUrw==}
-
-  solidity-stringutils@https://codeload.github.com/LayerZero-Labs/solidity-stringutils/tar.gz/eb21d6b502c2741145ab2a90f5f5b4fda9dfb218:
-    resolution: {tarball: https://codeload.github.com/LayerZero-Labs/solidity-stringutils/tar.gz/eb21d6b502c2741145ab2a90f5f5b4fda9dfb218}
-    version: 0.0.1
 
 snapshots:
 
@@ -108,23 +82,4 @@ snapshots:
       '@uniswap/v3-core': 1.0.1
       base64-sol: 1.0.1
 
-  '@zk-email/contracts@6.1.5':
-    dependencies:
-      '@openzeppelin/contracts': 5.2.0
-      dotenv: 16.4.7
-
-  '@zk-email/jwt-tx-builder-contracts@0.0.1-main':
-    dependencies:
-      '@openzeppelin/contracts': 5.2.0
-      '@openzeppelin/contracts-upgradeable': 5.2.0(@openzeppelin/contracts@5.2.0)
-      '@zk-email/contracts': 6.1.5
-      solady: 0.0.123
-      solidity-stringutils: https://codeload.github.com/LayerZero-Labs/solidity-stringutils/tar.gz/eb21d6b502c2741145ab2a90f5f5b4fda9dfb218
-
   base64-sol@1.0.1: {}
-
-  dotenv@16.4.7: {}
-
-  solady@0.0.123: {}
-
-  solidity-stringutils@https://codeload.github.com/LayerZero-Labs/solidity-stringutils/tar.gz/eb21d6b502c2741145ab2a90f5f5b4fda9dfb218: {}

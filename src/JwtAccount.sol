@@ -12,7 +12,7 @@ import "@openzeppelin/contracts/proxy/utils/UUPSUpgradeable.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
 import "@account-abstraction/contracts/core/BaseAccount.sol";
 import "@account-abstraction/contracts/core/Helpers.sol";
-import {EmailProof as JwtProof, IVerifier} from "@zk-email/jwt-tx-builder-contracts/src/interfaces/IVerifier.sol";
+import {JwtProof, IVerifier} from "./interfaces/IVerifier.sol";
 
 contract JwtAccount is BaseAccount, UUPSUpgradeable, Initializable {
     IEntryPoint private immutable _entryPoint;

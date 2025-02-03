@@ -3,9 +3,8 @@ pragma solidity ^0.8.13;
 
 import {Script, console} from "forge-std/Script.sol";
 import {ERC1967Proxy} from "@openzeppelin/contracts/proxy/ERC1967/ERC1967Proxy.sol";
-import {JwtGroth16Verifier} from "@zk-email/jwt-tx-builder-contracts/src/utils/JwtGroth16Verifier.sol";
-import {JwtVerifier} from "@zk-email/jwt-tx-builder-contracts/src/utils/JwtVerifier.sol";
-import {JwtRegistry} from "@zk-email/jwt-tx-builder-contracts/src/utils/JwtRegistry.sol";
+import {JwtGroth16Verifier} from "../src/JwtGroth16Verifier.sol";
+import {JwtVerifier} from "../src/JwtVerifier.sol";
 import {IEntryPoint, JwtAccountFactory} from "../src/JwtAccountFactory.sol";
 
 contract DeployScript is Script {
@@ -18,8 +17,6 @@ contract DeployScript is Script {
         address initialOwner = deployer;
 
         vm.startBroadcast(deployerPrivateKey);
-        JwtRegistry jwtRegistry = new JwtRegistry(deployer);
-        console.log("JWT Registry deployed to:", address(jwtRegistry));
 
         JwtVerifier jwtVerifierImpl = new JwtVerifier();
         console.log("JWTVerifier implementation deployed at: %s", address(jwtVerifierImpl));
