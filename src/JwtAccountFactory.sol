@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity ^0.8.23;
 
+// Adapted from https://github.com/eth-infinitism/account-abstraction/blob/61dc7cacde141e4f3dc882dcb0c5301fa514405c/contracts/samples/SimpleAccountFactory.sol
+
 import "@openzeppelin/contracts/utils/Create2.sol";
 import "@openzeppelin/contracts/proxy/ERC1967/ERC1967Proxy.sol";
 import {IVerifier} from "./interfaces/IVerifier.sol";

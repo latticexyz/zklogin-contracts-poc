@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity ^0.8.23;
 
+// Adapted from https://github.com/eth-infinitism/account-abstraction/blob/61dc7cacde141e4f3dc882dcb0c5301fa514405c/contracts/samples/SimpleAccount.sol
+
 /* solhint-disable avoid-low-level-calls */
 /* solhint-disable no-inline-assembly */
 /* solhint-disable reason-string */
