@@ -29,7 +29,7 @@ contract JwtVerifier is IVerifier, OwnableUpgradeable, UUPSUpgradeable {
         groth16Verifier = IJwtGroth16Verifier(_groth16Verifier);
     }
 
-    function verifyEmailProof(JwtProof memory proof) public view returns (bool) {
+    function verifyJwtProof(JwtProof memory proof) public view returns (bool) {
         (uint256[2] memory pA, uint256[2][2] memory pB, uint256[2] memory pC) =
             abi.decode(proof.proof, (uint256[2], uint256[2][2], uint256[2]));
 

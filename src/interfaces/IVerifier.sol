@@ -21,7 +21,7 @@ interface IVerifier {
      * @param proof The email proof to be verified.
      * @return bool indicating whether the proof is valid.
      */
-    function verifyEmailProof(JwtProof memory proof) external returns (bool);
+    function verifyJwtProof(JwtProof memory proof) external returns (bool);
 
     /**
      * @notice Returns a constant value representing command bytes.

@@ -90,16 +90,21 @@ contract JwtAccount is BaseAccount, UUPSUpgradeable, Initializable {
     {
         (JwtProof memory proof, bytes memory userOpSig) = abi.decode(userOp.signature, (JwtProof, bytes));
         // TODO: we might need to use a modified verifier as validateUserOp can only access this contract's storage
-        // TODO: verify dkim pubkey?
+        // TODO: verify domain / pubkey
         // TODO: check expiration
-        // TODO: do something if maskedCommand includes more data?
+
+        // Recover signer and compare against burner wallet encoded in JWT's nonce
         address userOpSigner = ECDSA.recover(MessageHashUtils.toEthSignedMessageHash(userOpHash), userOpSig);
         if (userOpSigner != Strings.parseAddress(proof.maskedCommand)) {
             return SIG_VALIDATION_FAILED;
         }
-        if (!_verifier.verifyEmailProof(proof)) {
+
+        // Verify zk proof
+        if (!_verifier.verifyJwtProof(proof)) {
             return SIG_VALIDATION_FAILED;
         }
+
+        // Check that accountSalt matches initialization salt
         if (proof.accountSalt != accountSalt) {
             return SIG_VALIDATION_FAILED;
         }
